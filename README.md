@@ -2,6 +2,14 @@
 
 API https://api.demoblaze.com
 
+### Tecnologías de desarrollo
+Este ejemplo fue construída con las siguientes herramientas y lenguajes:
+
+* Gradle 7.1
+* Java 8
+* karate-junit5
+* cucumber-reporting
+
 ## Detalles generales de la implementación
 
 ````
