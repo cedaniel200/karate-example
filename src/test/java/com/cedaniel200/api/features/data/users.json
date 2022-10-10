@@ -1,0 +1,20 @@
+{
+  "existing": {
+    "username": "cedaniel200",
+    "password": "123456789"
+  },
+  "withBadUsername": {
+    "username": "cedaniel200--",
+    "password": "123456789"
+  },
+  "withBadPassword": {
+    "username": "cedaniel200",
+    "password": "123456789--"
+  },
+  "withBadParameter": {
+    "username": "cedaniel200"
+  }
+}
+
+
+

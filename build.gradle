@@ -1,0 +1,49 @@
+buildscript {
+    repositories {
+        mavenCentral()
+        mavenLocal()
+    }
+    ext{
+        karateVersion = '1.2.0'
+    }
+}
+
+plugins {
+    id 'java'
+}
+
+group 'com.cedaniel200'
+version '1.0-SNAPSHOT'
+
+java.sourceCompatibility = JavaVersion.VERSION_1_8
+
+sourceSets {
+    test {
+        resources {
+            srcDirs = ['src/test/resources','src/test/java']
+            exclude '**/*.java'
+        }
+    }
+}
+
+repositories {
+    mavenCentral()
+    mavenLocal()
+}
+
+dependencies {
+    testImplementation "com.intuit.karate:karate-junit5:$rootProject.ext.karateVersion"
+    testImplementation 'net.masterthought:cucumber-reporting:5.7.2'
+}
+
+test {
+    useJUnitPlatform()
+    systemProperty "karate.options", System.properties.getProperty("karate.options")
+    systemProperty "karate.env", System.properties.getProperty("karate.env")
+    outputs.upToDateWhen { false }
+}
+
+task karateExecute(type: JavaExec) {
+    classpath = sourceSets.test.runtimeClasspath
+    main = 'com.intuit.karate.cli.Main'
+}
